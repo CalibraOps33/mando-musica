@@ -27,7 +27,11 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - uses: android-actions/setup-android@v3
+      # El runner ubuntu-latest ya trae el Android SDK (ANDROID_HOME) con las licencias aceptadas.
+      - name: Comprobar Android SDK
+        run: |
+          echo "ANDROID_HOME=$ANDROID_HOME"
+          ls "$ANDROID_HOME/platforms" || true
 
       - uses: gradle/actions/setup-gradle@v4
         with:
