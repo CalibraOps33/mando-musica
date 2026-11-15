@@ -1,0 +1,9 @@
+{
+  "name": "link-probe",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Spike: comprobar si el Side Service de Zepp llega a un servidor HTTP local en el movil (127.0.0.1 / LAN).",
+  "dependencies": {
+    "@zeppos/zml": "latest"
+  }
+}

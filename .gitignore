@@ -1,0 +1,15 @@
+# Android / Gradle
+.gradle/
+build/
+local.properties
+*.iml
+.idea/
+captures/
+
+# Zepp OS
+node_modules/
+dist/
+
+# Sistema
+.DS_Store
+Thumbs.db
