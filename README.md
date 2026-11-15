@@ -34,10 +34,16 @@ Si la carpeta `.github` no se sube, crea el archivo a mano: *Add file → Create
 ### 3. Esperar a la compilación
 En la pestaña **Actions** verás "Compilar app Android (companion)". Tarda unos 5 minutos. Si sale ✅ verde, el APK está listo. Si sale ❌ rojo, abre el error y envíaselo a Claude (con una captura basta).
 
-### 4. Instalar en el móvil
-1. En el navegador del móvil, entra en el repositorio (con tu sesión de GitHub iniciada) → **Releases** → **dev** → `mando-musica-dev.apk`.
-2. Android te pedirá permitir que el navegador instale apps desconocidas. Acéptalo.
-3. Las siguientes versiones se instalan encima de la anterior, sin desinstalar.
+### 4. Instalar en el móvil (con ADB desde el PC)
+Google Play Protect **bloquea** la instalación desde el navegador, sin opción de saltarlo, porque la app pide acceso a notificaciones. La instalación por ADB no tiene esa restricción.
+
+1. Descarga *SDK Platform-Tools for Windows* (`platform-tools-latest-windows.zip`, en developer.android.com) y descomprímelo, por ejemplo, en `C:\platform-tools`.
+2. En el móvil, activa las opciones de desarrollador: pulsa 7 veces *Número de compilación*. Después activa la **Depuración USB**.
+3. Conecta el móvil por USB, abre PowerShell en `C:\platform-tools` y ejecuta `.\adb devices`. Acepta el aviso que aparece en el móvil.
+4. Descarga `mando-musica-dev.apk` desde **Releases → dev** a esa carpeta y ejecuta `.\adb install -r mando-musica-dev.apk`.
+5. Las versiones nuevas se instalan con el mismo comando, encima de la anterior.
+
+> Para distribuir el producto a usuarios habrá que publicarlo en Google Play: las instalaciones desde la tienda no se bloquean.
 
 ### 5. Primer arranque
 Abre **Mando Música (dev)**:
